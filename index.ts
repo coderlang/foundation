@@ -1,6 +1,7 @@
 export * from "./src/db/DBManager";
 export * from "./src/db/NullTable";
 export * from "./src/db/Table";
+export * from "./src/db/Storage";
 
 export * from "./src/model/cache/LFUCacheStrategy";
 export * from "./src/model/cache/LRUCacheStrategy";
