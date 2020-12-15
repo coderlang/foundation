@@ -1,0 +1,3 @@
+[submodule "3rd_party"]
+	path = 3rd_party
+	url = https://github.com/coderlang/3rd_party.git
