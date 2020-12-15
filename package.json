@@ -1,0 +1,22 @@
+{
+	"name": "foundation",
+	"version": "0.996.0",
+	"scripts": {
+		"checksign": "node ./3rd_party/script/cmd/checksign.js ||  npm install && node ./3rd_party/script/cmd/checksign.js ",
+		"init": "node ./3rd_party/script/cmd/init.js",
+		"push": "node ./3rd_party/script/cmd/push.js",
+		"prepush": "npm run build",
+		"build": "tsc",
+		"prebuild": "npm run checksign"
+	},
+	"files": [
+		"src",
+		"index.ts"
+	],
+	"dependencies": {
+		"utils": "git+https://github.com/coderlang/utils.git"
+	},
+	"devDependencies": {},
+	"miniprogram": ".",
+	"private": true
+}
