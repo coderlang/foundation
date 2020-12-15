@@ -24,9 +24,7 @@ export * from "./src/net/loginAPI";
 export * from "./src/net/logoutAPI";
 export * from "./src/net/Net";
 
-export * from "./src/net/http/StreamBuilder"
 export * from "./src/net/http/Http"
 export * from "./src/net/http/HttpBuilder"
-export {RegisterStreamPush, UnRegisterStreamPush} from "./src/net/http/push"
 
 export * from "./src/Plugin";

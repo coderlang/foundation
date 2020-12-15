@@ -1,8 +1,6 @@
 import {Plugin} from "../Plugin";
 import {Token} from "../model/Token";
 import {HttpBuilder} from "./http/HttpBuilder";
-import {StreamBuilderCreator} from "./http/StreamBuilder";
-import {CURLPostHttpBuilderCreator} from "./http/CURLPostHttpBuilder";
 
 /**
  * 401 表示net层不通，连通net层的方法常常是 login
@@ -90,7 +88,10 @@ export class Net {
 
   // private token_: string | null = null;
   private has401_: boolean = false;
-  private creator_: (baseUrl: string) => HttpBuilder = CURLPostHttpBuilderCreator()
+  private creator_: (baseUrl: string) => HttpBuilder = (headerAPIKey:string): HttpBuilder => {
+    throw new Error("Please setHttpBuilderCreator");
+  };
+
   private readonly plugin_: Plugin;
   private readonly baseUrl_: string;
   private mainNet_ = false;

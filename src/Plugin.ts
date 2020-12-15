@@ -3,7 +3,7 @@ import {ModelFactory} from "./model/ModelFactory";
 import {Net} from "./net/Net";
 import {NotificationCenter} from "./nc/NotificationCenter";
 import {DBManager} from "./db/DBManager";
-import {WXDBManager} from "./db/WXDBManager";
+import {NullDBManager} from "./db/NullDBManager";
 
 
 // const sym:symbol = Symbol("some plugin");
@@ -12,8 +12,7 @@ export class Plugin {
   private constructor(name:string){
     this.nc_ = new NotificationCenter(this);
     this.mf_ = new ModelFactory(this);
-    // 默认使用 WXDBManager
-    this.dbManager_ = new WXDBManager(this);
+    this.dbManager_ = new NullDBManager(this);
     this.name_ = name;
   }
 
