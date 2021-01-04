@@ -3,9 +3,12 @@
 	"version": "0.996.0",
 	"scripts": {
 		"checksign": "node ./3rd_party/script/cmd/checksign.js ||  npm install && node ./3rd_party/script/cmd/checksign.js ",
+		"checkgit": "node ./3rd_party/script/cmd/checkgit.js",
 		"init": "node ./3rd_party/script/cmd/init.js",
 		"push": "node ./3rd_party/script/cmd/push.js",
-		"prepush": "npm run build",
+		"prepush": "npm run checkgit && npm run build",
+		"pushjs": "node ./3rd_party/script/cmd/pushjs.js",
+		"prepushjs": "npm run checkgit && npm run build",
 		"build": "tsc",
 		"prebuild": "npm run checksign"
 	},
@@ -14,7 +17,7 @@
 		"index.ts"
 	],
 	"dependencies": {
-		"utils": "git+https://github.com/coderlang/utils.git"
+		"utils": "git+https://github.com/coderlang/utils.git#a52669ef798d54fe900b1458e7cd33f10fc9a3e0"
 	},
 	"devDependencies": {},
 	"miniprogram": ".",
