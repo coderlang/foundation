@@ -2,7 +2,6 @@ import {DefaultConstructor} from "utils";
 import {Net} from "./Net";
 import {CodeError, PostJsonNoToken} from "./api";
 import {AppInvalidEvent, AppReValidEvent, Me} from "../model/Me";
-import {Token} from "../model/Token";
 
 export async function PostJsonLoginWithRes<T extends object>(uri:string, request: object
   , resType:DefaultConstructor<T>, net:Net, headers:Map<string, string> = new Map<string, string>())

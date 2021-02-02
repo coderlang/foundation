@@ -1,12 +1,9 @@
-
 import {ModelFactory} from "./model/ModelFactory";
 import {Net} from "./net/Net";
 import {NotificationCenter} from "./nc/NotificationCenter";
 import {DBManager} from "./db/DBManager";
 import {NullDBManager} from "./db/NullDBManager";
 
-
-// const sym:symbol = Symbol("some plugin");
 
 export class Plugin {
   private constructor(name:string){
@@ -55,17 +52,6 @@ export class Plugin {
     this.dbManager_ = dbm
   }
 
-  public net(baseUrl:string):Net {
-    let net = this.nets_.get(baseUrl);
-
-    if (net === undefined) {
-      net = new Net(this, baseUrl);
-      this.nets_.set(baseUrl, net);
-    }
-
-    return net;
-  }
-
   public getMainNet():Net {
     if (this.mainNet_ === null) {
       throw new Error("main net has not set!");
@@ -76,8 +62,6 @@ export class Plugin {
   public setMainNet(net: Net):void {
     if (this.mainNet_ === null) {
       this.mainNet_ = net;
-      // 主网络必须包含于nets集合中，所以这里无论设置的主网络是否在nets中，直接再加入一次
-      this.nets_.set(net.getBaseUrl(), net);
       return;
     }
 
@@ -91,7 +75,6 @@ export class Plugin {
   private readonly name_:string;
   private readonly nc_:NotificationCenter;
   private readonly mf_:ModelFactory;
-  private nets_:Map<string, Net> = new Map<string, Net>();
   private mainNet_:Net|null = null;
   private dbManager_:DBManager;
 }

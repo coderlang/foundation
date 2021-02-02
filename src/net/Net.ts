@@ -16,7 +16,7 @@ export class Net {
     if (this.has401_) {
       return
     }
-    this.has401_ = true
+    this.has401_ = true;
     this.net401Delegate_(this)
   }
 
@@ -52,23 +52,15 @@ export class Net {
     if (token !== Token.empty) {
       this.clear401()
     }
-    // this.token_ = token;
+
     await (await this.plugin_.mf().getModel(Token)).set(this.baseUrl_, token);
   }
 
   async getToken(): Promise<string> {
     return (await (await this.plugin_.mf().getModel(Token)).get(this.baseUrl_));
-
-    // // 优先读取缓存token 防止最近一次set的token还没有落地而读取错误，见setToken中的说明
-    // if (this.token_ === null) {
-    //   this.token_ = await (await this.plugin_.mf().getModel(Token)).get(this.baseUrl_);
-    // }
-    //
-    // return this.token_;
   }
 
   async clearToken() {
-    // this.token_ = null;
     await (await this.plugin_.mf().getModel(Token)).clear(this.baseUrl_);
   }
 
@@ -86,7 +78,6 @@ export class Net {
     return this.plugin_;
   }
 
-  // private token_: string | null = null;
   private has401_: boolean = false;
   private creator_: (baseUrl: string) => HttpBuilder = (headerAPIKey:string): HttpBuilder => {
     throw new Error("Please setHttpBuilderCreator");
@@ -95,6 +86,5 @@ export class Net {
   private readonly plugin_: Plugin;
   private readonly baseUrl_: string;
   private mainNet_ = false;
-  private net401Delegate_: ((net: Net) => void) = ((net: Net) => {
-  });
+  private net401Delegate_: ((net: Net) => void) = ((net: Net) => {});
 }
