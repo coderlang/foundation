@@ -16,6 +16,7 @@ export * from "./src/model/DeviceModel";
 export * from "./src/model/ListModel";
 export * from "./src/model/Me";
 export * from "./src/model/ModelFactory";
+export * from "./src/model/TheDetailModel";
 
 export * from "./src/nc/Event";
 export * from "./src/nc/NotificationCenter";
