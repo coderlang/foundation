@@ -17,7 +17,7 @@
 		"index.ts"
 	],
 	"dependencies": {
-		"utils": "git+https://github.com/coderlang/utils.git#b3f01ddc84132201abcc21a62d6cb0dead346283"
+		"utils": "git+https://github.com/coderlang/utils.git#master"
 	},
 	"devDependencies": {},
 	"miniprogram": ".",
